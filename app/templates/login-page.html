@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link href="static/css/login.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="login-page">
+        <div class="form">
+            <form action="" method="post" name="sqlintf">
+                {{ loginform.hidden_tag() }}
+
+                <p>
+                    {{ loginform.dbname(size=40,placeholder="DB name") }}
+                </p>
+                <p>{{ loginform.dbusername(size=40,placeholder="Username") }}
+                </p>
+                <p>
+                    {{ loginform.dbpassword(size=40,placeholder="password") }}
+                </p>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-info btn-fill btn-wd">Connect</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<!--   Core JS Files   -->
+<script type="text/javascript">
+    $('.message a').click(function () {
+        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
+
+</script>
+
+</html>

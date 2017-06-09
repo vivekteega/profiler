@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block template %} 
+<a class="navbar-brand" href="#">{{curtable}}</a>
+{% endblock %}
+
+{% block content %}
+
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="60%" >
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Database Product</td>
+                <td>MYSQL</td>
+
+            </tr>
+            <tr>
+                <td>URL for this DBMS</td>
+                <td>{{dbURI}}</td>
+            </tr>
+            <tr>
+                <td>Connector name</td>
+                <td>SQL Alchemy</td>
+            </tr>
+            <tr>
+                <td>EXTRA characters used in unquoted identifier names</td>
+                <td>#@</td>
+            </tr>
+            <tr>
+                <td>String used to quote SQL identifiers</td>
+                <td>`</td>
+            </tr>
+            <tr>
+                <td>Separator between a Catalog and Table name</td>
+                <td>.</td>
+            </tr>
+            <tr>
+                <td>Database vendor preferred term for CATALOG</td>
+                <td>database</td>
+            </tr>
+            <tr>
+                <td>Catalog appears at the start of a fully qualified table name</td>
+                <td>YES</td>
+            </tr>
+            <tr>
+                <td>Database vendor preferred term for PROCEDURE</td>
+                <td>PROCEDURE</td>
+            </tr>
+            <tr>
+                <td>String that can be used to escape wildcard characters</td>
+                <td>\</td>
+            </tr>
+            <tr>
+                <td>All Procedures are Callbale</td>
+                <td>NO</td>
+            </tr>
+            <tr>
+                <td>All Table are Selectable </td>
+                <td>NO</td>
+            </tr>
+            <tr>
+                <td>Database is Read Only</td>
+                <td>NO</td>
+            </tr>
+            <tr>
+                <td>Database stores tables in a local file</td>
+                <td>NO</td>
+            </tr>
+            <tr>
+                <td>Database uses a file for each table</td>
+                <td>NO</td>
+            </tr>
+            <tr>
+                <td>Max Row Size includes Blob</td>
+                <td>NO</td>
+            </tr>
+        </tbody>
+    </table>
+
+    </div>
+
+{% endblock %}

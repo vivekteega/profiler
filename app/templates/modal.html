@@ -1,0 +1,252 @@
+{% extends "base.html" %} 
+
+{% block template %} 
+<a class="navbar-brand" href="#">Data Quality</a>
+{% endblock %}
+
+
+{% block content %}
+{% with messages = get_flashed_messages() %} {% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %} 
+{% endwith %}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-warning text-center">
+                                    <a href="#" data-target="#findduplicate" data-toggle="modal"><i class="ti-server" style = " color :#F3BB45" ></i></a>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Find</p>
+                                    Duplicate
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+
+                                    <a href="#" data-target="#fuzzydedup" data-toggle="modal"><i class="ti-wallet" style = " color : #7AC29A" ></i></a>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Fuzzy</p>
+                                    De-dup
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+
+                                    <a href="#" data-target="#replacenull" data-toggle="modal"><i class="ti-pencil" style = "color: #EB5E28" ></i></a>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Null</p>
+                                    Replace
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+
+                                    <a href="#" data-target="#kmean" data-toggle="modal"><i class="ti-shift-right" ></i></a>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>K-Means</p>
+                                    Cluster
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--row ends here-->
+</div>
+
+
+
+<!--Find Duplicates modal config -->
+<div class="modal fade" id="findduplicate" tabindex="-1" role="dialog" aria-labelledby="findduplicatelabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="findduplicatelabel">Find Duplicate</h4>
+            </div>
+            <div class="modal-body">
+
+                <form action="" method="post" name="finddup">
+                    {{ finddupform.hidden_tag() }}
+                    <p>
+                        Table name:<br> {{ finddupform.tablen}}<br>
+                    </p>
+                    <p>
+                        Column name:<br> {{ finddupform.columnn(size=40) }}<br>
+                    </p>
+                    <p><input type="submit" value="Execute"></p>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info btn-simple">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--fuzzy de-dup modal-->
+<div class="modal fade" id="fuzzydedup" tabindex="-1" role="dialog" aria-labelledby="fuzzydeduplabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="fuzzydeduplabel">Fuzzy De-dup</h4>
+            </div>
+            <div class="modal-body">
+
+                <form action="" method="post" name="fuzzydedeup">
+                    {{ dedupform.hidden_tag() }}
+                    <p>
+                        Table name:<br> {{ dedupform.tablen }}<br>
+                    </p>
+                    <p>
+                        Column name:<br> {{ dedupform.columnn(size=40) }}<br>
+                    </p>
+                    <p>
+                        Parameter:<br> {{ dedupform.columnn(size=40) }}<br>
+                    </p>
+                    <p><input type="submit" value="Execute"></p>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info btn-simple">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Replace null modal config -->
+<div class="modal fade" id="replacenull" tabindex="-1" role="dialog" aria-labelledby="repnulllabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="repnulllabel">Replace Null</h4>
+            </div>
+            <div class="modal-body">
+
+                <form action="" method="post" name="replacenull">
+                    {{ repnullform.hidden_tag() }}
+                    <p>
+                        Table name:<br> {{ repnullform.tablen }}<br>
+                    </p>
+                    <p>
+                        Column name:<br> {{ repnullform.columnn(size=40) }}<br>
+                    </p>
+                    <p>
+                        Replace value:<br> {{ repnullform.repvalue(size=40) }}<br>
+                    </p>
+                    <p><input type="submit" value="Execute"></p>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info btn-simple">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--K-Mean modal config -->
+<div class="modal fade" id="kmean" tabindex="-1" role="dialog" aria-labelledby="kmeanlabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="kmeanlabel">Replace Null</h4>
+            </div>
+            <div class="modal-body">
+
+                <form action="" method="post" name="replacenull">
+                    {{ repnullform.hidden_tag() }}
+                    <p>
+                        Table name:<br> {{ repnullform.tablen(size=40) }}<br>
+                    </p>
+                    <p>
+                        Column name:<br> {{ repnullform.columnn(size=40) }}<br>
+                    </p>
+                    <p><input type="submit" value="Execute"></p>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info btn-simple">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

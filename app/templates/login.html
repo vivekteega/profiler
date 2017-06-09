@@ -1,0 +1,32 @@
+<html>
+    <title>
+    </title>
+    <body>
+
+        <form action="" method="post" name="sqlintf">
+                {{ loginform.hidden_tag() }}
+                <p>
+                    DB connection name:<br>
+                    {{ loginform.connname(size=40) }}<br>
+                </p>
+                <p>
+                    DB type:<br>
+                    {{ loginform.dbtype(size=40) }}<br>
+                </p>
+                <p>
+                    DB name:<br>
+                    {{ loginform.dbname(size=40) }}<br>
+                </p>
+                <p>
+                    Username:<br>
+                    {{ loginform.dbusername(size=40) }}<br>
+                </p>
+                <p>
+                    Password:<br>
+                    {{ loginform.dbpassword(size=40) }}<br>
+                </p>
+                <p><input type="submit" value="Execute"></p>
+              </form>
+
+    </body>
+</html>

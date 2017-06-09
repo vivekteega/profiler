@@ -1,0 +1,1040 @@
+{% extends "base.html" %}
+
+{% block template %} 
+<a class="navbar-brand" href="#">{{curtable}}</a>
+{% endblock %}
+
+{% block content %}
+
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="60%" >
+  <thead>
+    <tr style="text-align: right;">
+      <th>String Fx</th>
+      <th>Numeric Fx</th>
+      <th>Date Fx</th>
+      <th>System Fx</th>
+      <th>SQL Keywords</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ASCII( )</td>
+      <td>ABS( )</td>
+      <td>DAYOFWEEK( )</td>
+      <td>DATABASE( )</td>
+      <td>ACCESSIBLE</td>
+    </tr>
+    <tr>
+      <td>BIN( )</td>
+      <td>ACOS( )</td>
+      <td>WEEKDAY( )</td>
+      <td>USER( )</td>
+      <td>ALGORITHM</td>
+    </tr>
+    <tr>
+      <td>BIT_LENGTH( )</td>
+      <td>ASIN( )</td>
+      <td>DAYOFMONTH( )</td>
+      <td>SYSTEM_USER( )</td>
+      <td>ANALYZE</td>
+    </tr>
+    <tr>
+      <td>CHAR( )</td>
+      <td>ATAN( )</td>
+      <td>DAYOFYEAR( )</td>
+      <td>SESSION_USER( )</td>
+      <td>ASENSITIVE</td>
+    </tr>
+    <tr>
+      <td>CHARACTER_LENGTH( )</td>
+      <td>ATAN2( )</td>
+      <td>MONTH( )</td>
+      <td>PASSWORD( )</td>
+      <td>BEFORE</td>
+    </tr>
+    <tr>
+      <td>CHAR_LENGTH( )</td>
+      <td>BIT_COUNT( )</td>
+      <td>DAYNAME( )</td>
+      <td>ENCRYPT( )</td>
+      <td>BIGINT</td>
+    </tr>
+    <tr>
+      <td>CONCAT( )</td>
+      <td>CEILING( )</td>
+      <td>MONTHNAME( )</td>
+      <td>LAST_INSERT_ID( )</td>
+      <td>BINARY</td>
+    </tr>
+    <tr>
+      <td>CONCAT_WS( )</td>
+      <td>COS( )</td>
+      <td>QUARTER( )</td>
+      <td>VERSION( )</td>
+      <td>BLOB</td>
+    </tr>
+    <tr>
+      <td>CONV( )</td>
+      <td>COT( )</td>
+      <td>WEEK( )</td>
+      <td>   </td>
+      <td>CALL</td>
+    </tr>
+    <tr>
+      <td>ELT( )</td>
+      <td>DEGREES( )</td>
+      <td>YEAR( )</td>
+      <td>   </td>
+      <td>CHANGE</td>
+    </tr>
+    <tr>
+      <td>EXPORT_SET( )</td>
+      <td>EXP( )</td>
+      <td>HOUR( )</td>
+      <td>   </td>
+      <td>CONDITION</td>
+    </tr>
+    <tr>
+      <td>FIELD( )</td>
+      <td>FLOOR( )</td>
+      <td>MINUTE( )</td>
+      <td>   </td>
+      <td>COPY</td>
+    </tr>
+    <tr>
+      <td>FIND_IN_SET( )</td>
+      <td>LOG( )</td>
+      <td>SECOND( )</td>
+      <td>   </td>
+      <td>DATA</td>
+    </tr>
+    <tr>
+      <td>HEX( )</td>
+      <td>LOG10( )</td>
+      <td>PERIOD_ADD( )</td>
+      <td>   </td>
+      <td>DATABASE</td>
+    </tr>
+    <tr>
+      <td>INSERT( )</td>
+      <td>MAX( )</td>
+      <td>PERIOD_DIFF( )</td>
+      <td>   </td>
+      <td>DATABASES</td>
+    </tr>
+    <tr>
+      <td>INSTR( )</td>
+      <td>MIN( )</td>
+      <td>TO_DAYS( )</td>
+      <td>   </td>
+      <td>DAY_HOUR</td>
+    </tr>
+    <tr>
+      <td>LCASE( )</td>
+      <td>MOD( )</td>
+      <td>FROM_DAYS( )</td>
+      <td>   </td>
+      <td>DAY_MICROSECOND</td>
+    </tr>
+    <tr>
+      <td>LEFT( )</td>
+      <td>PI( )</td>
+      <td>DATE_FORMAT( )</td>
+      <td>   </td>
+      <td>DAY_MINUTE</td>
+    </tr>
+    <tr>
+      <td>LENGTH( )</td>
+      <td>POW( )</td>
+      <td>TIME_FORMAT( )</td>
+      <td>   </td>
+      <td>DAY_SECOND</td>
+    </tr>
+    <tr>
+      <td>LOAD_FILE( )</td>
+      <td>POWER( )</td>
+      <td>CURDATE( )</td>
+      <td>   </td>
+      <td>DELAYED</td>
+    </tr>
+    <tr>
+      <td>LOCATE( )</td>
+      <td>RADIANS( )</td>
+      <td>CURRENT_DATE( )</td>
+      <td>   </td>
+      <td>DETERMINISTIC</td>
+    </tr>
+    <tr>
+      <td>LOCATE( )</td>
+      <td>RAND( )</td>
+      <td>CURTIME( )</td>
+      <td>   </td>
+      <td>DIRECTORY</td>
+    </tr>
+    <tr>
+      <td>LOWER( )</td>
+      <td>ROUND( )</td>
+      <td>CURRENT_TIME( )</td>
+      <td>   </td>
+      <td>DISCARD</td>
+    </tr>
+    <tr>
+      <td>LPAD( )</td>
+      <td>SIN( )</td>
+      <td>NOW( )</td>
+      <td>   </td>
+      <td>DISTINCTROW</td>
+    </tr>
+    <tr>
+      <td>LTRIM( )</td>
+      <td>SQRT( )</td>
+      <td>SYSDATE( )</td>
+      <td>   </td>
+      <td>DIV</td>
+    </tr>
+    <tr>
+      <td>MAKE_SET( )</td>
+      <td>TAN( )</td>
+      <td>CURRENT_TIMESTAMP( )</td>
+      <td>   </td>
+      <td>DUAL</td>
+    </tr>
+    <tr>
+      <td>MATCH( )</td>
+      <td>TRUNCATE( )</td>
+      <td>UNIX_TIMESTAMP( )</td>
+      <td>   </td>
+      <td>EACH</td>
+    </tr>
+    <tr>
+      <td>MID( )</td>
+      <td>   </td>
+      <td>FROM_UNIXTIME( )</td>
+      <td>   </td>
+      <td>ELSEIF</td>
+    </tr>
+    <tr>
+      <td>OCT( )</td>
+      <td>   </td>
+      <td>SEC_TO_TIME( )</td>
+      <td>   </td>
+      <td>ENCLOSED</td>
+    </tr>
+    <tr>
+      <td>OCTET_LENGTH( )</td>
+      <td>   </td>
+      <td>TIME_TO_SEC( )</td>
+      <td>   </td>
+      <td>ESCAPED</td>
+    </tr>
+    <tr>
+      <td>ORD( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>EXCHANGE</td>
+    </tr>
+    <tr>
+      <td>POSITION( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>EXCLUSIVE</td>
+    </tr>
+    <tr>
+      <td>QUOTE( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>EXIT</td>
+    </tr>
+    <tr>
+      <td>REPEAT( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>EXPLAIN</td>
+    </tr>
+    <tr>
+      <td>REPLACE( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>EXPORT</td>
+    </tr>
+    <tr>
+      <td>REVERSE( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>FLOAT4</td>
+    </tr>
+    <tr>
+      <td>RIGHT( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>FLOAT8</td>
+    </tr>
+    <tr>
+      <td>RPAD( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>FLUSH</td>
+    </tr>
+    <tr>
+      <td>RTRIM( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>FORCE</td>
+    </tr>
+    <tr>
+      <td>SOUNDEX( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>FULLTEXT</td>
+    </tr>
+    <tr>
+      <td>SPACE( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>GENERAL</td>
+    </tr>
+    <tr>
+      <td>STRCMP( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>HIGH_PRIORITY</td>
+    </tr>
+    <tr>
+      <td>SUBSTRING( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>HOUR_MICROSECOND</td>
+    </tr>
+    <tr>
+      <td>SUBSTRING( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>HOUR_MINUTE</td>
+    </tr>
+    <tr>
+      <td>SUBSTRING( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>HOUR_SECOND</td>
+    </tr>
+    <tr>
+      <td>SUBSTRING( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>IF</td>
+    </tr>
+    <tr>
+      <td>SUBSTRING_INDEX( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>IGNORE</td>
+    </tr>
+    <tr>
+      <td>TRIM( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>IGNORE_SERVER_IDS</td>
+    </tr>
+    <tr>
+      <td>UCASE( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>IMPORT</td>
+    </tr>
+    <tr>
+      <td>UPPER( )</td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>INFILE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>INOUT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>INPLACE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>INT1</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>INT2</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>INT3</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>INT4</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>INT8</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>ITERATE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>KEYS</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>KILL</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LEAVE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LIMIT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LINEAR</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LINES</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LOAD</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LOCALTIME</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LOCALTIMESTAMP</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LOCK</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LONG</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LONGBLOB</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LONGTEXT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LOOP</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>LOW_PRIORITY</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>MASTER_HEARTBEAT_PERIOD</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>MAXVALUE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>MEDIUMBLOB</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>MEDIUMINT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>MEDIUMTEXT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>MIDDLEINT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>MINUTE_MICROSECOND</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>MINUTE_SECOND</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>MOD</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>MODIFIES</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>NO_WRITE_TO_BINLOG</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>OPTIMIZE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>OPTIONALLY</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>OUT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>OUTFILE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>PARTITION</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>PURGE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>RANGE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>READS</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>READ_ONLY</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>READ_WRITE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>REBUILD</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>REGEXP</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>RELEASE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>REMOVE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>RENAME</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>REORGANIZE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>REPAIR</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>REPEAT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>REPLACE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>REQUIRE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>RESIGNAL</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>RETURN</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>RLIKE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SCHEMAS</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SECOND_MICROSECOND</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SENSITIVE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SEPARATOR</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SHARED</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SHOW</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SIGNAL</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SLOW</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SPATIAL</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SPECIFIC</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SQLEXCEPTION</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SQL_BIG_RESULT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SQL_CALC_FOUND_ROWS</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SQL_SMALL_RESULT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>SSL</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>STARTING</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>STRAIGHT_JOIN</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>TABLES</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>TABLESPACE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>TERMINATED</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>TINYBLOB</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>TINYINT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>TINYTEXT</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>TRIGGER</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>UNDO</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>UNLOCK</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>UNSIGNED</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>USE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>UTC_DATE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>UTC_TIME</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>UTC_TIMESTAMP</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>VARBINARY</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>VARCHARACTER</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>WHILE</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>X509</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>XOR</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>YEAR_MONTH</td>
+    </tr>
+    <tr>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>   </td>
+      <td>ZEROFILL</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+{% endblock %}

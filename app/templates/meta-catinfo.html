@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block template %} 
+<a class="navbar-brand" href="#">{{curtable}}</a>
+{% endblock %}
+
+{% block content %}
+
+{{tables| safe}}
+
+{% endblock %}

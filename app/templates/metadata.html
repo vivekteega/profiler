@@ -1,0 +1,142 @@
+{% extends "base.html" %} {% block template %}
+<a class="navbar-brand" href="#">Metadata</a> {% endblock %} {% block content %} {% with messages = get_flashed_messages()
+%} {% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %} {% endwith %}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+
+                                    <a href="http://localhost:5000/metadata?card=generalinfo"><i class="ti-wallet" style = " color : #7AC29A" ></i></a>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>General</p>
+                                    Info
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+
+                                    <a href="http://localhost:5000/metadata?card=limitinfo"><i class="ti-wallet" style = " color : #7AC29A" ></i></a>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Limitation</p>
+                                    Info
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+
+                                    <a href="http://localhost:5000/metadata?card=functioninfo"><i class="ti-wallet" style = " color : #7AC29A" ></i></a>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Function</p>
+                                    Info
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+
+                                    <a href="http://localhost:5000/metadata?card=cataloginfo"><i class="ti-wallet" style = " color : #7AC29A" ></i></a>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Catalog</p>
+                                    Info
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!--row ends here-->
+    </div>
+</div>
+
+
+</div>
+
+
+
+<!-- SQL interface modal config -->
+<div class="modal fade" id="functioninfo" tabindex="-1" role="dialog" aria-labelledby="funcintf" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="funcintf">SQL interface</h4>
+            </div>
+            <div class="modal-body">-->
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info btn-simple">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
