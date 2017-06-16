@@ -141,4 +141,39 @@
     </div>
 </div>
 
+<!-- Create Table modal config -->
+<div class="modal fade" id="createtable" tabindex="-1" role="dialog" aria-labelledby="tableintf" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="tableintf">Create Table</h4>
+            </div>
+            <div class="modal-body">
+
+                <form action="" method="post" name="replacenull">
+                    {{ ctableform.hidden_tag() }}
+                    <p>
+                        Table name: {{ ctableform.tablename(size=40)}}<br>
+            
+                        Column name: {{ ctableform.columnn(size=40) }}<br>
+                
+                        Datatype: {{ ctableform.datatype }}<br>
+
+                        Not Null: {{ ctableform.notnull }}<br>
+
+                        Primary Key: {{ ctableform.pkey }}<br>
+                    </p>
+                    <p><input type="submit" value="Execute"></p>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info btn-simple">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

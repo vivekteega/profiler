@@ -1,9 +1,20 @@
 from app import app
+import random
+import numpy as np
+import random
+import StringIO
+import requests
+from flask import Flask, make_response
+from scipy import cluster
+from matplotlib import pyplot
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
 import pandas as pd 
 from flask import request, render_template, flash, redirect
 from sqlalchemy import create_engine
 import json
-from .forms import SQLINTF, replaceNull, fuzzyDedup, findDuplicate, loginForm, kmeanForm, recipeForm, Program
+from .forms import SQLINTF, replaceNull, fuzzyDedup, findDuplicate, loginForm, kmeanForm, recipeForm, Program, createTable, linearRegression
 
 #GET REQUEST
 
@@ -26,10 +37,6 @@ def welcome1():
 
 @app.route('/test',methods=['GET','POST'])
 def welcome2():
-	#form = recipeForm(request.form)
-	#categories = [['vivek',"Vivek"],['vamsi',"Vamsi"],['gary',"Gary"],['sharvik',"Sharvik"]]
-	#form = recipeForm(request.form)
-	#form.category.choices = categories
 	form = Program()
 	return render_template('temporary.html', form=form)
 
@@ -77,19 +84,65 @@ def dataQuality():
 		return redirect('/dataquality')
 
 	kmeanform = kmeanForm()
-	if kmeanform.validate_on_submit():
-		#queryString = "update " + str(fuzzydedupform.tablen.data) + " set " + str(fuzzydedupform.columnn.data) 
-		#result = connection.execute(queryString) 
-		connection.close()
-		engine.dispose()
-		flash('Query executed')
-		return redirect('/dataquality')
+	if kmeanform.validate_on_submit(): 
+		url = "/kmeans?table="+str(kmeanform.tablen.data)+"&column1="+str(kmeanform.column1.data)+"&column2="+str(kmeanform.column2.data)
+		return redirect(url)
 
+	lregform = linearRegression()
+	if lregform.validate_on_submit(): 
+		url = "/linearreg?table="+str(lregform.tablen.data)+"&column1="+str(lregform.column1.data)+"&column2="+str(lregform.column2.data)
+		return redirect(url)
 
+	
 	connection.close()
 	engine.dispose()
-	return render_template('modal.html',tablenames=tablenames, sqlform=sqlform, repnullform = repnullform, dedupform = fuzzydedupform, kmeanform=kmeanform, finddupform = finddupform)
+	return render_template('modal.html',tablenames=tablenames, sqlform=sqlform, lregform=lregform, repnullform = repnullform, dedupform = fuzzydedupform, kmeanform=kmeanform, finddupform = finddupform)
 
+@app.route('/linearreg')
+def linearReg():
+	engine = create_engine(dbURI)
+	connection = engine.connect()
+	fig = Figure()
+	axis = fig.add_subplot(1, 1, 1)
+	query = "select * from "+str(request.args.get('table'))
+	frame = pd.read_sql(query, connection)
+	column1 = str(request.args.get('column1'))
+	column2 = str(request.args.get('column2'))
+	xs = frame[column1]
+	ys = frame[column2]
+	m, b = np.polyfit(xs, ys, 1)
+	axis.scatter(xs, ys)
+	axis.plot(xs,m*xs+b)
+	canvas = FigureCanvas(fig)
+	output = StringIO.StringIO()
+	canvas.print_png(output)
+	response = make_response(output.getvalue())
+	response.mimetype = 'image/png'
+	return response
+
+@app.route('/kmeans')
+def kmeans():
+	engine = create_engine(dbURI)
+	connection = engine.connect()
+	fig = Figure()
+	axis = fig.add_subplot(1, 1, 1)
+	query = "select * from "+str(request.args.get('table'))
+	frame = pd.read_sql(query, connection)
+	column1 = str(request.args.get('column1'))
+	column2 = str(request.args.get('column2'))
+	tests = pd.concat([column1, column2], axis=1, keys=['column1', 'column2'])
+
+	cent, var = initial[3]
+	#use vq() to get as assignment for each obs.
+	assignment,cdist = cluster.vq.vq(tests,cent)
+	axis.scatter(tests[:,0], tests[:,1], c=assignment)	
+
+	canvas = FigureCanvas(fig)
+	output = StringIO.StringIO()
+	canvas.print_png(output)
+	response = make_response(output.getvalue())
+	response.mimetype = 'image/png'
+	return response
 
 @app.route('/metadata',methods=['GET','POST'])
 def metadata(): 
@@ -144,10 +197,21 @@ def tools():
 		flash('Query executed')
 		return redirect('/tools')
 
+	ctableform = createTable()
+	if ctableform.validate_on_submit():
+		tquery = "CREATE TABLE "+str(ctableform.tablen.data)+"(" + str(ctableform.columnn.data) + " " + str(ctableform.data.datatype)
+		if ctableform.pkey.data:
+			tquery = tquery + ", PRIMARY KEY(" + ctableform.columnn.data +" )"
+		tquery = tquery + ");"
+		result = connection.execute(tquery)
+		connection.close()
+		engine.dispose()
+		flash('Query executed')
+		return redirect('/tools')
 
 	connection.close()
 	engine.dispose()
-	return render_template('tools.html',tablenames=tablenames, sqlform=sqlform)
+	return render_template('tools.html',tablenames=tablenames, sqlform=sqlform, ctableform =ctableform)
 
 @app.route('/login',methods=['GET','POST'])
 def login(): 
@@ -176,6 +240,31 @@ def login():
 		#return str(columndict)
 
 	return render_template('login-page.html', loginform=loginform)
+
+@app.route('/kmeans')
+def plot():
+	engine = create_engine(dbURI)
+	connection = engine.connect()
+	fig = Figure()
+	axis = fig.add_subplot(1, 1, 1)
+	tablen = request.args.get('table')
+	frame = connection.execute("select * from "+str(tablen))
+	column1 = request.args.get('column1')
+	column2 = request.args.get('column2')
+	tests = pd.concat([frame[kmeanform.column1.data], frame[kmeanform.column2.data]], axis=1, keys=[str(kmeanform.column1.data), str(kmeanform.column2.data)])
+	initial = [cluster.vq.kmeans(tests,i) for i in range(1,10)]
+	cent, var = initial[3]
+	#use vq() to get as assignment for each obs.
+	assignment,cdist = cluster.vq.vq(tests,cent)
+	axis.scatter(tests[:,0], tests[:,1], c=assignment)
+	canvas = FigureCanvas(fig)
+	output = StringIO.StringIO()
+	canvas.print_png(output)
+	response = make_response(output.getvalue())
+	response.mimetype = 'image/png'
+	connection.close()
+	engine.dispose()
+	return response
 
 # 1. Fetch table from the specified database
 @app.route('/table')
@@ -207,6 +296,8 @@ def getColumn(tablename,colname):
 	return render_template('column.html', pltdata = [total, unique, null])
 	# data=[total,unique,null])
 
+
+###########################################################################################################################
 # 3. Returns frequency statistics of the given column 
 @app.route('/report/frequency_statistics/<tablename>/<colname>')
 def getFreqstat(tablename, colname):

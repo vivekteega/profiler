@@ -111,6 +111,32 @@
                 </div>
             </div>
 
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+
+                                    <a href="#" data-target="#lreg" data-toggle="modal"><i class="ti-shift-right" ></i></a>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Linear</p>
+                                    Reg
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            
+
         </div>
     </div>
 </div>
@@ -224,17 +250,18 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="kmeanlabel">Replace Null</h4>
+                <h4 class="modal-title" id="kmeanlabel">K-Means</h4>
             </div>
             <div class="modal-body">
 
                 <form action="" method="post" name="replacenull">
-                    {{ repnullform.hidden_tag() }}
+                    {{ kmeanform.hidden_tag() }}
                     <p>
-                        Table name:<br> {{ repnullform.tablen(size=40) }}<br>
+                        Table name:<br> {{ kmeanform.tablen(size=40) }}<br>
                     </p>
                     <p>
-                        Column name:<br> {{ repnullform.columnn(size=40) }}<br>
+                        Column1 name:<br> {{ kmeanform.column1(size=40) }}<br>
+                        Column2 name:<br> {{ kmeanform.column2(size=40) }}<br>
                     </p>
                     <p><input type="submit" value="Execute"></p>
                 </form>
@@ -247,6 +274,41 @@
         </div>
     </div>
 </div>
+
+<!--Linear Regression modal-->
+<div class="modal fade" id="lreg" tabindex="-1" role="dialog" aria-labelledby="lreglabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="lreglabel">Linear Regression</h4>
+            </div>
+            <div class="modal-body">
+
+                <form action="" method="post" name="lreg">
+                    {{ lregform.hidden_tag() }}
+                    <p>
+                        Table name:<br> {{ lregform.tablen }}<br>
+                    </p>
+                    <p>
+                        Column1 name:<br> {{ lregform.column1(size=40) }}<br>
+                    </p>
+                    <p>
+                        Column2 name:<br> {{ lregform.column2(size=40) }}<br>
+                    </p>
+                    <p><input type="submit" value="Execute"></p>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info btn-simple">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 {% endblock %}
