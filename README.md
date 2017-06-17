@@ -15,5 +15,15 @@ To run the application in the development web server just execute `run.py` with 
 
 Screenshots
 -----------
+
+Connection page
 ![Alt text](/screenshots/shot1.png?raw=true "Connection page")
+
+Table view
+![Alt text](/screenshots/shot2.png?raw=true "Table view")
+
+Data quality functions
+![Alt text](/screenshots/shot3.png?raw=true "Data Quality functions")
+
+![Alt text](/screenshots/shot4.png?raw=true "Replace Null modal")
 
