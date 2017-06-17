@@ -8,7 +8,7 @@ Installation
 
 The app runs on Python 2.7
 
-Following dependencies are required :
+Following dependencies are required :  
 Flask  
 Flask-WTF  
 SQLAlchemy  
