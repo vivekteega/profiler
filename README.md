@@ -6,7 +6,15 @@ This is a webapp for data preprocessing tasks, specifically data profiling and q
 Installation
 ------------
 
-Install python and the listed dependencies in the requirements.txt file
+The app runs on Python 2.7
+
+Following dependencies are required :
+Flask
+Flask-WTF
+SQLAlchemy
+mysql-python
+scipy
+pandas
 
 Running
 -------
