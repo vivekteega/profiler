@@ -9,17 +9,17 @@ Installation
 The app runs on Python 2.7
 
 Following dependencies are required :
-Flask
-Flask-WTF
-SQLAlchemy
-mysql-python
-scipy
-pandas
+Flask  
+Flask-WTF  
+SQLAlchemy  
+mysql-python  
+scipy  
+pandas  
 
 Running
 -------
 
-To run the application in the development web server just execute `run.py` with the Python interpreter from the flask virtual environment.
+To run the application in the development web server just execute `run.py` with 'python run.py'. Make sure the right python environment has been activated.
 
 Screenshots
 -----------
