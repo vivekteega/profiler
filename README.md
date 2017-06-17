@@ -15,5 +15,5 @@ To run the application in the development web server just execute `run.py` with 
 
 Screenshots
 -----------
-![Alt text](profiler/screenshots/shot1.png?raw=true "Connection page")
+![Alt text](/screenshots/shot1.png?raw=true "Connection page")
 
